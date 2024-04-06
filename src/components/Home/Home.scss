@@ -1,0 +1,71 @@
+/* Home */
+
+.home,
+.home-img,
+.home-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background-image: linear-gradient(to left, rgb(28, 20, 53, 0.5), rgb(59, 73, 99, 0.5)), url(../../assets/images/backgrounds/home-skills.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+.home-img {
+    width: 30%;
+}
+
+.home-img .img-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.home-img .img-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.home-text {
+    width: 70%;
+}
+
+.home-text h1 {
+    font-size: 50px;
+}
+
+.home-text span {
+    font-weight: 800;
+}
+
+
+/* Responsive */
+
+@media (max-width : 800px) {
+    .home {
+        flex-direction: column;
+
+        .home-img,
+        .home-text {
+            width: 100%;
+            height: 40%;
+        }
+
+        .home-text h1 {
+            font-size: 35px;
+        }
+
+        .home-img .img-circle {
+            width: 200px;
+            height: 200px;
+        }
+
+    }
+}
