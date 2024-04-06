@@ -1,9 +1,38 @@
 .navbar {
     width: 100%;
-    background-color: rgb(241, 47, 47);
+    padding: 30px !important;
 
-    svg {
-        color: #464444;
-        cursor: pointer;
+    .menu-logo {
+        width: 25%;
+
+        svg {
+            color: #92b3da;
+            cursor: pointer;
+        }
+    }
+
+    .others-container {
+        width: 75%;
+
+        svg {
+            color: white;
+        }
+
+        img {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            margin-left: 20px;
+            transition: all 1s ease;
+        }
+
+        .basket-icon {
+            width: 48px;
+            height: 50px;
+        }
+
+        .others {
+            width: 50%;
+        }
     }
 }

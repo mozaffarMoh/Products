@@ -9,8 +9,8 @@ const PageNotFound = () => {
   };
   return (
     <div className="page-not-found flexCenterColumn">
-      <h2>عذرا هذا الرابط غير موجود</h2>
-      <button onClick={handleNavigate}>العودة الى الصفحة الرئيسية</button>
+      <h2>Sorry this URL is not found !!</h2>
+      <button onClick={handleNavigate}>Back to home</button>
     </div>
   );
 };
