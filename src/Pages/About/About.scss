@@ -17,3 +17,16 @@
         }
     }
 }
+
+
+
+@media (max-width : 700px) {
+    .about {
+        height: 100%;
+
+        .about-text {
+            padding: 20px;
+        }
+    }
+
+}
