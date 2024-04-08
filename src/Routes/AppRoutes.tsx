@@ -1,17 +1,46 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { About, Home, Login, PageNotFound, Register } from "../Pages";
+import { useLocation } from "react-router-dom";
+import {
+  About,
+  AllProducts,
+  Home,
+  Login,
+  PageNotFound,
+  Register,
+  SingleProduct,
+} from "../Pages";
+import { Footer, Navbar } from "../Sections";
+import React from "react";
 
-const AppRoutes = () => {
+const AppRoutes = ({ Routes, Route }: any) => {
+  const location = useLocation();
+  const [hideNavbarAndFooter, setHideNavbarAndFooter] = React.useState(false);
+
+  /* Hide Navbar if login and register page is exist */
+  React.useEffect(() => {
+    if (
+      location.pathname.includes("login") ||
+      location.pathname.includes("register")
+    ) {
+      setHideNavbarAndFooter(true);
+    } else {
+      setHideNavbarAndFooter(false);
+    }
+  }, [location]);
+
   return (
-    <Router basename="Products">
+    <>
+      {!hideNavbarAndFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/single-product" element={<SingleProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </Router>
+      {!hideNavbarAndFooter && <Footer />}
+    </>
   );
 };
 

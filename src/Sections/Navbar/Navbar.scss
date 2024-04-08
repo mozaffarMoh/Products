@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    padding: 30px !important;
+    padding: 20px !important;
 
     .menu-logo {
         width: 25%;
@@ -8,6 +8,7 @@
         svg {
             color: #92b3da;
             cursor: pointer;
+            animation: increaseSize 1s infinite alternate;
         }
     }
 
@@ -24,6 +25,10 @@
             height: 40px;
             margin-left: 20px;
             transition: all 1s ease;
+
+            &:hover {
+                animation-name: increaseSize;
+            }
         }
 
         .basket-icon {
@@ -34,5 +39,19 @@
         .others {
             width: 50%;
         }
+    }
+}
+
+
+
+@keyframes increaseSize {
+    0% {
+        width: 40px;
+        height: 40px;
+    }
+
+    100% {
+        width: 50px;
+        height: 50px;
     }
 }

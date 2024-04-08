@@ -1,0 +1,19 @@
+.about {
+    height: 420px;
+
+    .about-text {
+        width: 100%;
+        text-align: center;
+        padding: 50px 100px;
+
+        h1 {
+            font-size: 45px;
+            margin-bottom: 40px;
+            color: hsl(214 30% 32% / 1);
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+}
