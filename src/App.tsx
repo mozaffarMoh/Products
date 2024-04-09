@@ -16,7 +16,11 @@ function App() {
   return (
     <div className={`app ${isNight && "night-mode-styles"}`}>
       <Router basename="Products">
-        <AppRoutes Routes={Routes} Route={Route} setRerenderComponent={setRerenderComponent} />
+        <AppRoutes
+          Routes={Routes}
+          Route={Route}
+          setRerenderComponent={setRerenderComponent}
+        />
       </Router>
     </div>
   );

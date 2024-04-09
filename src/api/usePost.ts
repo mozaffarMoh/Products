@@ -1,6 +1,7 @@
 import React from "react";
 import postApi from "./postApi";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const usePost = (endPoint: string, body: Object) => {
     const navigate = useNavigate()
@@ -18,6 +19,7 @@ const usePost = (endPoint: string, body: Object) => {
             setTimeout(() => {
                 setSuccess(false)
                 if (location.pathname.includes('login')) {
+                    Cookies.set('token', res.data.token)
                     navigate('/')
                 }
             }, 3000);

@@ -6,10 +6,16 @@ import basketImg from "../../assets/images/Navbar/basket.ico";
 import React from "react";
 import { Sidebar } from "../../components";
 import Cookies from "js-cookie";
+import useGet from "../../api/useGet";
+import { endPoint } from "../../api/endPoint";
+import { Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ setRerenderComponent }: any) => {
+  const navigate = useNavigate();
   const isNight: any = Cookies.get("isNight");
   const [showSideBar, setShowSideBar] = React.useState(false);
+  const [data, loading]: any = useGet(endPoint.allProducts);
 
   const handleChangeDayStatus = () => {
     if (isNight) {
@@ -27,13 +33,24 @@ const Navbar = ({ setRerenderComponent }: any) => {
         <BiMenu size={40} onClick={() => setShowSideBar(true)} />
       </div>
       <div className="others-container flexEnd">
-        <div className="others flexCenter">
+        <div className="others flexCenter ">
           <img
             src={isNight ? sunImg : moonImg}
             style={{ transform: isNight ? "rotate(-120deg)" : "rotate(0deg)" }}
             onClick={handleChangeDayStatus}
           />
-          <img src={basketImg} className="basket-icon" />
+          <img
+            src={basketImg}
+            className="basket-icon"
+            onClick={() => navigate("/all-products")}
+          />
+          <div className="porducts-number flexCenter">
+            {loading ? (
+              <Spinner size="sm" className="loader-animation" />
+            ) : (
+              <p>{data && data.length}</p>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -15,31 +15,56 @@
     .others-container {
         width: 75%;
 
-        svg {
-            color: white;
-        }
+        .others {
 
-        img {
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            margin-left: 20px;
-            transition: all 1s ease;
+            svg {
+                color: white;
+            }
 
-            &:hover {
-                animation-name: increaseSize;
+            img {
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                margin-left: 20px;
+                transition: all 1s ease;
+
+                &:hover {
+                    animation-name: increaseSize;
+                }
+            }
+
+            .basket-icon {
+                width: 48px;
+                height: 50px;
+            }
+
+
+            width: 50%;
+
+            .porducts-number {
+                position: relative;
+                width: 25px;
+                height: 25px;
+                background-color: rgb(248, 109, 109);
+                border-radius: 7px;
+                right: 10px;
+                bottom: 15px;
+
+                .loader-animation {
+                    width : 15px;
+                    height: 15px;
+                    color : white;
+                }
+
+                p {
+                    margin-top: 15px;
+                    color: white;
+                }
             }
         }
-
-        .basket-icon {
-            width: 48px;
-            height: 50px;
-        }
-
-        .others {
-            width: 50%;
-        }
     }
+
+
 }
 
 
