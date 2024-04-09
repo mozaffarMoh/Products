@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { endPoint } from "../../api/endPoint";
 import useGet from "../../api/useGet";
-import { Loading } from "../../components";
+import { FilterProducts, Loading } from "../../components";
 import "./AllProducts.scss";
 
 const AllProducts = () => {
@@ -18,6 +18,7 @@ const AllProducts = () => {
       <div className="products-text">
         <h1>Choose your product</h1>
       </div>
+      <FilterProducts />
       <div className="products-items flexCenter">
         {data &&
           data.map((item: any, index: number) => {
