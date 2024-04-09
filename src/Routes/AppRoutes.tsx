@@ -11,9 +11,8 @@ import {
 import { Footer, Navbar } from "../Sections";
 import React from "react";
 
-const AppRoutes = ({ Routes, Route }: any) => {
+const AppRoutes = ({ Routes, Route, setRerenderComponent }: any) => {
   const location = useLocation();
-  const [rerenderComponent, setRerenderComponent] = React.useState(false);
   const [hideNavbarAndFooter, setHideNavbarAndFooter] = React.useState(false);
 
   /* Hide Navbar if login and register page is exist */
@@ -27,12 +26,6 @@ const AppRoutes = ({ Routes, Route }: any) => {
       setHideNavbarAndFooter(false);
     }
   }, [location]);
-
-  React.useEffect(() => {
-    if (rerenderComponent) {
-      setRerenderComponent(false);
-    }
-  });
 
   return (
     <>

@@ -21,7 +21,7 @@ const Navbar = ({ setRerenderComponent }: any) => {
   };
 
   return (
-    <div className={`navbar ${isNight && "nightBG"}`}>
+    <div className="navbar">
       <Sidebar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
       <div className="menu-logo flexEnd">
         <BiMenu size={40} onClick={() => setShowSideBar(true)} />

@@ -5,14 +5,12 @@ import image1 from "../../assets/images/Home/1.jpg";
 import image2 from "../../assets/images/Home/2.jpg";
 import image3 from "../../assets/images/Home/3.jpg";
 import image4 from "../../assets/images/Home/4.jpg";
-import Cookies from 'js-cookie';
 
 const Home = () => {
   const imagesArray = [image1, image2, image3, image4];
-  const isNight = Cookies.get("isNight");
 
   return (
-    <div className={`home ${isNight && 'nightBG'}`}>
+    <div className="home">
       <div className="home-text">
         <h1>We are changing the way people shop</h1>
         <p>

@@ -10,9 +10,31 @@
     font-family: cursive;
 }
 
-.nightBG {
+.night-mode-styles {
     background-color: rgb(27, 27, 27);
-    color : white;
+    color: white;
+
+    h1 {
+        color: rgb(195, 218, 231) !important;
+    }
+
+    .navbar {
+        .sidebar {
+            background-color: rgb(55, 55, 56);
+            box-shadow: 10px -10px 20px rgb(70, 69, 69);
+        }
+    }
+
+    .all-products {
+        .products-items {
+            .product {
+                color: black;
+
+            }
+        }
+    }
+
+
 }
 
 
