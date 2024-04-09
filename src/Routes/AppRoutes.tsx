@@ -13,6 +13,7 @@ import React from "react";
 
 const AppRoutes = ({ Routes, Route }: any) => {
   const location = useLocation();
+  const [rerenderComponent, setRerenderComponent] = React.useState(false);
   const [hideNavbarAndFooter, setHideNavbarAndFooter] = React.useState(false);
 
   /* Hide Navbar if login and register page is exist */
@@ -27,9 +28,17 @@ const AppRoutes = ({ Routes, Route }: any) => {
     }
   }, [location]);
 
+  React.useEffect(() => {
+    if (rerenderComponent) {
+      setRerenderComponent(false);
+    }
+  });
+
   return (
     <>
-      {!hideNavbarAndFooter && <Navbar />}
+      {!hideNavbarAndFooter && (
+        <Navbar setRerenderComponent={setRerenderComponent} />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

@@ -1,3 +1,5 @@
 export const endPoint = {
-    allProducts : '/products'
+    allProducts: '/products',
+    login : '/login',
+    register: '/signup'
 }
