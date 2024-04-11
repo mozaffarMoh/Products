@@ -15,6 +15,10 @@
         }
 
         .search-by-range {
+            margin: 0px;
+        }
+
+        .range-input {
             width: 100%;
             cursor: pointer;
         }
@@ -34,8 +38,6 @@
 }
 
 
-
-
 @media (max-width : 680px) {
     .filter-products {
         flex-direction: column;
@@ -44,11 +46,9 @@
             width: 80%;
             margin-top: 25px;
 
-        }
-
-        .search-by-range {
-            margin: 0px;
-            padding-left: 20px;
+            .search-by-range {
+                width: 100%;
+            }
         }
 
     }
