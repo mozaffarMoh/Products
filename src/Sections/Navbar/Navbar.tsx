@@ -30,7 +30,7 @@ const Navbar = ({ setRerenderComponent }: any) => {
     <div className="navbar">
       <Sidebar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
       <div className="menu-logo flexEnd">
-        <BiMenu size={40} onClick={() => setShowSideBar(true)} />
+        <BiMenu onClick={() => setShowSideBar(true)} />
       </div>
       <div className="others-container flexEnd">
         <div className="others flexCenter ">
@@ -39,17 +39,19 @@ const Navbar = ({ setRerenderComponent }: any) => {
             style={{ transform: isNight ? "rotate(-120deg)" : "rotate(0deg)" }}
             onClick={handleChangeDayStatus}
           />
-          <img
-            src={basketImg}
-            className="basket-icon"
-            onClick={() => navigate("/all-products")}
-          />
-          <div className="porducts-number flexCenter">
-            {loading ? (
-              <Spinner size="sm" className="loader-animation" />
-            ) : (
-              <p>{data && data.length}</p>
-            )}
+          <div className="position-relative">
+            <img
+              src={basketImg}
+              className="basket-icon"
+              onClick={() => navigate("/all-products")}
+            />
+            <div className="porducts-number flexCenter">
+              {loading ? (
+                <Spinner size="sm" className="loader-animation" />
+              ) : (
+                <p>{data && data.length}</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
