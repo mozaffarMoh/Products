@@ -21,8 +21,13 @@ const FilterProducts = ({ data, setProducts }: any) => {
   }, [data, categoryArray]);
 
   /* change price value */
-  const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPrice(parseInt(event.target.value));
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPrice = parseInt(e.target.value);
+    setPrice(newPrice);
+    let newArrayPrices = data.filter((item: any) => {
+      return item?.price > newPrice;
+    });
+    setProducts([...newArrayPrices]);
   };
 
   /* Search By Title */
@@ -48,7 +53,7 @@ const FilterProducts = ({ data, setProducts }: any) => {
           onChange={handleSearchByTitle}
         />
       </div>
-      <div className="search-by-range">
+      <div className="search-by-range ">
         <div className="flexBetween pr-10">
           <p>Select price</p>
           <p>{price} &nbsp; $</p>
