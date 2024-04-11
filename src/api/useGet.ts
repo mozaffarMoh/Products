@@ -16,7 +16,7 @@ const useGet = (endPoint: string) => {
             setErrorMessage(err.data.data)
         })
     }, [])
-    return [data, loading, errorMessage]
+    return [data, loading, errorMessage, setData]
 }
 
 export default useGet;

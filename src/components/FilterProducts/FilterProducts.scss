@@ -1,5 +1,49 @@
-.filter-products{
-    width : 100%;
-    height: 200px;
-    background-color: red;
+.filter-products {
+    width: 100%;
+    margin: 40px;
+
+    div {
+        width: 100%;
+        margin-left: 20px;
+        position: relative;
+
+        .search-by-title {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .search-by-range {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            height: 50px;
+            color : black;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    }
+
+
+}
+
+
+
+
+@media (max-width : 680px) {
+    .filter-products {
+        flex-direction: column;
+
+        div {
+            width: 80%;
+            margin-top: 50px;
+        }
+    }
 }

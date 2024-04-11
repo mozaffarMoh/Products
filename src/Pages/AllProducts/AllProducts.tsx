@@ -3,9 +3,11 @@ import { endPoint } from "../../api/endPoint";
 import useGet from "../../api/useGet";
 import { FilterProducts, Loading } from "../../components";
 import "./AllProducts.scss";
+import React from "react";
 
 const AllProducts = () => {
   const [data, loading]: any = useGet(endPoint.allProducts);
+  const [products, setProducts]: any = React.useState(null);
   const navigate = useNavigate();
 
   const handleChooseProduct = (productId: number) => {
@@ -18,10 +20,14 @@ const AllProducts = () => {
       <div className="products-text">
         <h1>Choose your product</h1>
       </div>
-      <FilterProducts />
+      <FilterProducts
+        data={data}
+        products={products}
+        setProducts={setProducts}
+      />
       <div className="products-items flexCenter">
         {data &&
-          data.map((item: any, index: number) => {
+          (products ? products : data).map((item: any, index: number) => {
             return (
               <div
                 className="product flexCenterColumn"
@@ -30,7 +36,7 @@ const AllProducts = () => {
               >
                 <img src={item.image} />
                 <p className="mt-4">{item.title}</p>
-                <p>{item.price}</p>
+                <p>{item.price}&nbsp;$</p>
               </div>
             );
           })}

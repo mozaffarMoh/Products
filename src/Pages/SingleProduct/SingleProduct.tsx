@@ -48,7 +48,7 @@ const SingleProduct = () => {
           <div className="single-product-text flexStartColumn">
             <h1>{data.category}</h1>
             <h3>{data.title}</h3>
-            <h3>{data.price}</h3>
+            <h3>{data.price}&nbsp;$</h3>
             <p>{data.description}</p>
             <p>{data.rating?.count} Rates</p>
             <div className="rates-stars flexStart">
