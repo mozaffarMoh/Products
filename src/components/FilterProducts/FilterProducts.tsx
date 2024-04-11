@@ -61,11 +61,8 @@ const FilterProducts = ({ data, setProducts }: any) => {
   const handleSort = (e: any) => {
     const value = e.target.value;
     let sortedProducts = [...data];
-
     if (value === "asc") {
-      sortedProducts.sort((a, b) => {
-        return a.title.localeCompare(b.title);
-      });
+      sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
     } else if (value === "desc") {
       sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
     }
