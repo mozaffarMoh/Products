@@ -1,7 +1,7 @@
 import React from "react";
 import "./FilterProducts.scss";
 
-const FilterProducts = ({ data, products, setProducts }: any) => {
+const FilterProducts = ({ data, setProducts }: any) => {
   const [categoryArray, setCategoryArray]: any = React.useState([]);
   const [price, setPrice]: any = React.useState(0);
 
@@ -48,7 +48,7 @@ const FilterProducts = ({ data, products, setProducts }: any) => {
           onChange={handleSearchByTitle}
         />
       </div>
-      <div>
+      <div className="search-by-range">
         <div className="flexBetween pr-10">
           <p>Select price</p>
           <p>{price} &nbsp; $</p>

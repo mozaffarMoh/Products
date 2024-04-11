@@ -1,6 +1,5 @@
 .filter-products {
     width: 100%;
-    margin: 40px;
 
     div {
         width: 100%;
@@ -23,7 +22,7 @@
         select {
             width: 100%;
             height: 50px;
-            color : black;
+            color: black;
             padding: 10px;
             border-radius: 10px;
             cursor: pointer;
@@ -43,7 +42,14 @@
 
         div {
             width: 80%;
-            margin-top: 50px;
+            margin-top: 25px;
+
         }
+
+        .search-by-range {
+            margin: 0px;
+            padding-left: 20px;
+        }
+
     }
 }
