@@ -108,7 +108,7 @@ const FilterProducts = ({ data, setProducts }: any) => {
         </select>
       </div>
       <div>
-        <p>Sort elements</p>
+        <p>Sort products</p>
         <select onChange={handleSort}>
           <option value="">Default</option>
           <option value="asc">A-Z</option>
