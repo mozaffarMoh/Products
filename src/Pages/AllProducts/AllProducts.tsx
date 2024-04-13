@@ -24,7 +24,7 @@ const AllProducts = () => {
         data={data}
         products={products}
         setProducts={setProducts}
-      />
+      /> 
       <div className="products-items flexCenter">
         {data &&
           (products ? products : data).map((item: any, index: number) => {
