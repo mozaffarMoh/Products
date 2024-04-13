@@ -1,9 +1,13 @@
 import React from "react";
 import "./FilterProducts.scss";
+import { Button } from "react-bootstrap";
 
-const FilterProducts = ({ data, setProducts }: any) => {
+const FilterProducts = ({ data, products, setProducts }: any) => {
   const [categoryArray, setCategoryArray]: any = React.useState([]);
+  const [title, setTitle]: any = React.useState("");
   const [price, setPrice]: any = React.useState(0);
+  const [category, setCategory]: any = React.useState("");
+  const [sortValue, setSortValue]: any = React.useState("");
 
   /* Fill category array */
   React.useEffect(() => {
@@ -20,47 +24,29 @@ const FilterProducts = ({ data, setProducts }: any) => {
     }
   }, [data, categoryArray]);
 
-  /* Search By Title */
+  /* Change title value*/
   const handleSearchByTitle = (e: any) => {
     const value = e.target.value?.toLowerCase();
-    let newArray = data.filter((item: any) => {
-      return item?.title?.toLowerCase().startsWith(value);
-    });
-    if (value) {
-      setProducts([...newArray]);
-    } else {
-      setProducts(null);
-    }
+    setTitle(value);
   };
 
-  /* change price value */
+  /* Change price value */
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newPrice = parseInt(e.target.value);
     setPrice(newPrice);
-    let newArrayPrices = data.filter((item: any) => {
-      return item?.price > newPrice;
-    });
-    setProducts([...newArrayPrices]);
   };
 
-  /* Search By Category */
+  /* Change category value*/
   const handleSearchByCategory = (e: any) => {
     const value = e.target.value;
-
-    if (!value) {
-      setProducts([...data]);
-    } else {
-      let newArray = data.filter((item: any) => {
-        return item?.category === value;
-      });
-      setProducts([...newArray]);
-    }
+    setCategory(value);
   };
 
   /* Sort elements */
   const handleSort = (e: any) => {
     const value = e.target.value;
-    let sortedProducts = [...data];
+    setSortValue(value);
+    let sortedProducts = products ? [...products] : [...data];
     if (value === "asc") {
       sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
     } else if (value === "desc") {
@@ -70,50 +56,86 @@ const FilterProducts = ({ data, setProducts }: any) => {
     setProducts(sortedProducts);
   };
 
+  /* Search click button */
+  const handleSearchClick = () => {
+    let filteredArray = data.filter((item: any) => {
+      if (item?.title?.toLowerCase().startsWith(title) && item?.price > price) {
+        if (category) {
+          return item?.category === category;
+        } else {
+          return item;
+        }
+      }
+    });
+
+    setProducts([...filteredArray]);
+  };
+
+  /* Reset to default */
+  const handleReset = () => {
+    setProducts(null);
+    setPrice(0);
+    setCategory("");
+    setTitle("");
+    setSortValue("");
+  };
+
   return (
-    <div className="filter-products flexCenter">
-      <div>
-        <p>Select title</p>
-        <input
-          type="text"
-          placeholder="Search by title"
-          className="search-by-title"
-          onChange={handleSearchByTitle}
-        />
-      </div>
-      <div>
-        <div className="flexBetween search-by-range ">
-          <p>Select price</p>
-          <p>{price} &nbsp; $</p>
+    <div className="flexCenterColumn w-100">
+      <div className="filter-products flexCenter">
+        <div>
+          <p>Select title</p>
+          <input
+            type="text"
+            value={title}
+            placeholder="Search by title"
+            className="search-by-title"
+            onChange={handleSearchByTitle}
+          />
         </div>
-        <input
-          type="range"
-          min={0}
-          max={1000}
-          className="range-input"
-          onChange={handlePriceChange}
-        />
+        <div>
+          <div className="flexBetween search-by-range ">
+            <p>Select price</p>
+            <p>{price} &nbsp; $</p>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={1000}
+            value={price}
+            className="range-input"
+            onChange={handlePriceChange}
+          />
+        </div>
+        <div>
+          <p>Select Category</p>
+          <select onChange={handleSearchByCategory} value={category}>
+            <option value="">Default</option>
+            {categoryArray.map((item: any, index: number) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div>
+          <p>Sort products</p>
+          <select onChange={handleSort} value={sortValue}>
+            <option value="">Default</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+        </div>
       </div>
-      <div>
-        <p>Select Category</p>
-        <select onChange={handleSearchByCategory}>
-          <option value="">Default</option>
-          {categoryArray.map((item: any, index: number) => {
-            return (
-              <option value={item} key={index}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <div>
-        <p>Sort products</p>
-        <select onChange={handleSort}>
-          <option value="">Default</option>
-          <option value="asc">A-Z</option>
-          <option value="desc">Z-A</option>
-        </select>
+      <div className="flexEvenly search-events">
+        <Button variant="info" onClick={handleSearchClick}>
+          Search
+        </Button>
+        <Button variant="danger" onClick={handleReset}>
+          Reset
+        </Button>
       </div>
     </div>
   );

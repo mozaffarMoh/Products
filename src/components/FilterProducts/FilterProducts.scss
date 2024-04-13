@@ -34,8 +34,28 @@
 
     }
 
-
 }
+
+.search-events {
+    width: 100%;
+    margin-top: 50px;
+
+    button {
+        padding: 10px 40px;
+        border-radius: 10px;
+        color: white;
+
+        &:first-child:hover {
+            background-color: rgb(67, 231, 231);
+            color: white;
+        }
+
+        &:first-child:active {
+            background-color: rgb(150, 248, 248);
+        }
+    }
+}
+
 
 
 @media (max-width : 680px) {
