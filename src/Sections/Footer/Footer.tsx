@@ -1,10 +1,12 @@
+import { useTranslation } from "react-i18next";
 import "./Footer.scss";
 import { footerArray } from "./footerArray";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div className="footer flexCenter">
-      <p>© 2023 - 2024 | Designed and coded by Mozaffar Mohammad</p>
+      <p>{t("footer.copyrights")}</p>
       <div className="social-icons flexCenter">
         {footerArray.map((icon: any, index: number) => {
           return (

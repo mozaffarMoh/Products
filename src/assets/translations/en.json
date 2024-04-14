@@ -1,0 +1,48 @@
+{
+    "navbar": {
+        "sidebar": "Sidebar",
+        "list": "List",
+        "home": "Home",
+        "about": "About",
+        "products": "Products",
+        "changeLang": "Change to arabic",
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "email": "Email",
+        "password": "Password",
+        "username": "Username",
+        "haveAccount": "I have an account",
+        "dontHaveAccount": "I don't have an account",
+        "successLogin": "Login has been successful",
+        "successRegister": "Create account has been successful"
+    },
+    "home": {
+        "title": "We are changing the way people shop",
+        "desc": "Welcome to our exceptional online platform, where we offer you an unparalleled shopping experience that combines ease and convenience. We take pride in providing a wide range of high-quality products at competitive prices, ensuring you get the best value for your money. With our simple and user-friendly interface."
+    },
+    "about": {
+        "title": "About US",
+        "desc": "Welcome to our About page, where we are delighted to share our story with you. Our journey began with a passion for delivering exceptional products and an unwavering commitment to customer satisfaction. We take pride in curating a diverse range of high-quality goods, sourced from trusted suppliers around the world. Our mission is to provide you with a seamless shopping experience, backed by secure transactions and top-notch customer support. Join us as we continue to grow and innovate, driven by our dedication to excellence and your satisfaction."
+    },
+    "products": {
+        "chooseProduct": "Choose your product",
+        "selectTitle": "Select title",
+        "titlePlaceholder": "Search by title",
+        "selectPrice": "Select price",
+        "selectCategory": "Select Category",
+        "categoryDefault": "Default",
+        "selectSort": "Sort products",
+        "sortDefault": "Default",
+        "search": "Search",
+        "reset": "Reset",
+        "a-z": "A - Z",
+        "z-a": "Z - A"
+    },
+    "footer": {
+        "copyrights": "© 2023 - 2024 | Designed and coded by Mozaffar Mohammad"
+    }
+}

@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'react-toastify/dist/ReactToastify.css';
+import './i18next.ts';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

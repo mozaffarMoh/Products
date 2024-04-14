@@ -7,6 +7,7 @@ import { endPoint } from "../../api/endPoint";
 import { Loading } from "../../components";
 import useInput from "../../api/useInput";
 import React from "react";
+import { t } from "i18next";
 
 const Register = () => {
   const [inputFormData, handleChangeInputData]: any = useInput();
@@ -15,13 +16,13 @@ const Register = () => {
     inputFormData
   );
 
-  const loginSuccess = () => toast("Create account has been successful");
+  const loginSuccess = () => toast(t("auth.successRegister"));
   const loginFail = () => toast(errorMessage);
 
-  const inputArray = [
-    { placeholder: "Username", name: "username", type: "text" },
-    { placeholder: "Email", name: "email", type: "email" },
-    { placeholder: "Password", name: "password", type: "password" },
+  const inputArray = [  
+    { placeholder: t("auth.username"), name: "username", type: "text" },
+    { placeholder: t("auth.email"), name: "email", type: "email" },
+    { placeholder: t("auth.password"), name: "password", type: "password" },
   ];
 
   const handleRegister = (e: any) => {
@@ -44,7 +45,7 @@ const Register = () => {
         className="register-field flexCenterColumn"
         onSubmit={handleRegister}
       >
-        <h1>Register</h1>
+        <h1>{t("auth.register")}</h1>
         {inputArray.map((item: any, index: number) => {
           return (
             <input
@@ -59,9 +60,9 @@ const Register = () => {
         })}
 
         <Button type="submit" variant="warning">
-          Register
+          {t("auth.register")}
         </Button>
-        <Link to={"/login"}>I have an account</Link>
+        <Link to={"/login"}>{t("auth.haveAccount")}</Link>
       </form>
     </div>
   );

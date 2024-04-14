@@ -1,19 +1,13 @@
+import { useTranslation } from "react-i18next";
 import "./About.scss";
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <div className="about">
       <div className="about-text flexCenterColumn">
-        <h1>About US</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
-          nostrum velit esse totam sed temporibus facilis, sapiente consequuntur
-          at, similique, earum culpa odit modi! Rerum omnis sapiente aperiam
-          molestias harum.    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
-          nostrum velit esse totam sed temporibus facilis, sapiente consequuntur
-          at, similique, earum culpa odit modi! Rerum omnis sapiente aperiam
-          molestias harum.
-        </p>
+        <h1>{t("about.title")}</h1>
+        <p>{t("about.desc")}</p>
       </div>
     </div>
   );

@@ -4,8 +4,10 @@ import useGet from "../../api/useGet";
 import { FilterProducts, Loading } from "../../components";
 import "./AllProducts.scss";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const AllProducts = () => {
+  const { t } = useTranslation();
   const [data, loading]: any = useGet(endPoint.allProducts);
   const [productsFiltered, setProductsFiltered]: any = React.useState(null);
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const AllProducts = () => {
     <div className="all-products flexCenterColumn">
       {loading && <Loading />}
       <div className="products-text">
-        <h1>Choose your product</h1>
+        <h1>{t("products.chooseProduct")}</h1>
       </div>
       <FilterProducts
         data={data}

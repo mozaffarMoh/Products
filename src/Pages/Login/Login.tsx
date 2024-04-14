@@ -7,6 +7,7 @@ import { Loading } from "../../components";
 import { endPoint } from "../../api/endPoint";
 import { ToastContainer, toast } from "react-toastify";
 import React from "react";
+import { t } from "i18next";
 
 const Login = () => {
   const [inputFormData, handleChangeInputData]: any = useInput();
@@ -14,12 +15,12 @@ const Login = () => {
     endPoint.login,
     inputFormData
   );
-  const loginSuccess = () => toast("Login has been successful");
+  const loginSuccess = () => toast(t("auth.successLogin"));
   const loginFail = () => toast(errorMessage);
 
   const inputArray = [
-    { placeholder: "Username", name: "username", type: "text" },
-    { placeholder: "Password", name: "password", type: "password" },
+    { placeholder: t("auth.username"), name: "username", type: "text" },
+    { placeholder: t("auth.password"), name: "password", type: "password" },
   ];
 
   const handleLogin = (e: any) => {
@@ -33,13 +34,13 @@ const Login = () => {
       errorMessage && loginFail();
     }
   }, [success, errorMessage]);
-  
+
   return (
     <div className="login flexCenter">
       {loading && <Loading />}
       <ToastContainer />
       <form className="login-field flexCenterColumn" onSubmit={handleLogin}>
-        <h1>Login</h1>
+        <h1>{t("auth.login")}</h1>
         {inputArray.map((item: any, index: number) => {
           return (
             <input
@@ -53,9 +54,9 @@ const Login = () => {
           );
         })}
         <Button type="submit" variant="success">
-          Login
+          {t("auth.login")}
         </Button>
-        <Link to={"/register"}>I don't have an account</Link>
+        <Link to={"/register"}>{t("auth.dontHaveAccount")}</Link>
       </form>
     </div>
   );

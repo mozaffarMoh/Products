@@ -1,8 +1,10 @@
 import React from "react";
 import "./FilterProducts.scss";
 import { Button } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 const FilterProducts = ({ data, products, setProducts }: any) => {
+  const { t } = useTranslation();
   const [categoryArray, setCategoryArray]: any = React.useState([]);
   const [title, setTitle]: any = React.useState("");
   const [price, setPrice]: any = React.useState(0);
@@ -84,18 +86,18 @@ const FilterProducts = ({ data, products, setProducts }: any) => {
     <div className="flexCenterColumn w-100">
       <div className="filter-products flexCenter">
         <div>
-          <p>Select title</p>
+          <p>{t("products.selectTitle")}</p>
           <input
             type="text"
             value={title}
-            placeholder="Search by title"
+            placeholder={t("products.titlePlaceholder")}
             className="search-by-title"
             onChange={handleSearchByTitle}
           />
         </div>
         <div>
           <div className="flexBetween search-by-range ">
-            <p>Select price</p>
+            <p>{t("products.selectPrice")}</p>
             <p>{price} &nbsp; $</p>
           </div>
           <input
@@ -108,9 +110,9 @@ const FilterProducts = ({ data, products, setProducts }: any) => {
           />
         </div>
         <div>
-          <p>Select Category</p>
+          <p>{t("products.selectCategory")}</p>
           <select onChange={handleSearchByCategory} value={category}>
-            <option value="">Default</option>
+            <option value="">{t("products.categoryDefault")}</option>
             {categoryArray.map((item: any, index: number) => {
               return (
                 <option value={item} key={index}>
@@ -121,20 +123,20 @@ const FilterProducts = ({ data, products, setProducts }: any) => {
           </select>
         </div>
         <div>
-          <p>Sort products</p>
+          <p>{t("products.selectSort")}</p>
           <select onChange={handleSort} value={sortValue}>
-            <option value="">Default</option>
-            <option value="asc">A-Z</option>
-            <option value="desc">Z-A</option>
+            <option value="">{t("products.sortDefault")}</option>
+            <option value="asc">{t("products.a-z")}</option>
+            <option value="desc">{t("products.z-a")}</option>
           </select>
         </div>
       </div>
       <div className="flexEvenly search-events">
         <Button variant="info" onClick={handleSearchClick}>
-          Search
+          {t("products.search")}
         </Button>
         <Button variant="danger" onClick={handleReset}>
-          Reset
+          {t("products.reset")}
         </Button>
       </div>
     </div>
