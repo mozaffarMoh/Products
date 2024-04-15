@@ -19,6 +19,7 @@ const Sidebar = ({
 }: any) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const sidebarRef: any = React.useRef(null);
   const token = Cookies.get("token");
   const lang: any = Cookies.get("language");
   const [isFirstHide, setIsFirstHide] = React.useState(false);
@@ -40,11 +41,30 @@ const Sidebar = ({
     },
   ];
 
+  /* Handle hiding sidebar when click outside sidebar */
+  React.useEffect(() => {
+    const handleOutsideClick = (e: any) => {
+      console.log(e.target);
+      
+      if (sidebarRef.current && !sidebarRef.current?.contains(e.target)) {
+        handleHideSideBar();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  /* handl hiding sidebar */
   const handleHideSideBar = () => {
     setShowSideBar(false);
     setIsFirstHide(true);
   };
 
+  /* handle click on item of sidebar */
   const handleNavigate = (item: any) => {
     if (item.langValue) {
       Cookies.set("language", item.langValue);
@@ -59,6 +79,7 @@ const Sidebar = ({
     }
   };
 
+  /* Sidebar animation position based on language */
   const handleSideBarAnimation = () => {
     if (showSideBar) {
       if (lang == "ar") {
@@ -77,6 +98,7 @@ const Sidebar = ({
     }
   };
 
+  /* Sidebar position based on language */
   const handleSideBarPosition = () => {
     if (lang == "ar") {
       return "position-right";
@@ -88,6 +110,7 @@ const Sidebar = ({
   return (
     <div
       className={`sidebar ${handleSideBarAnimation()}  ${handleSideBarPosition()}`}
+      ref={sidebarRef}
     >
       <div className="sidebar-header flexBetween">
         <div className="flexCenter" dir="ltr">
