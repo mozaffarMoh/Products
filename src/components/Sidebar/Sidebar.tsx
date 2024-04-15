@@ -44,19 +44,20 @@ const Sidebar = ({
   /* Handle hiding sidebar when click outside sidebar */
   React.useEffect(() => {
     const handleOutsideClick = (e: any) => {
-      console.log(e.target);
-      
       if (sidebarRef.current && !sidebarRef.current?.contains(e.target)) {
-        handleHideSideBar();
+        console.log(showSideBar);
+
+        if (showSideBar) {
+          handleHideSideBar();
+        }
       }
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
-
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []);
+  }, [showSideBar]);
 
   /* handl hiding sidebar */
   const handleHideSideBar = () => {
