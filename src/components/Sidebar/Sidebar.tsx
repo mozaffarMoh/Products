@@ -12,7 +12,11 @@ import Cookies from "js-cookie";
 import { BsFlag } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 
-const Sidebar = ({ setShowSideBar, showSideBar }: any) => {
+const Sidebar = ({
+  setShowSideBar,
+  showSideBar,
+  setRerenderComponent,
+}: any) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const token = Cookies.get("token");
@@ -45,9 +49,7 @@ const Sidebar = ({ setShowSideBar, showSideBar }: any) => {
     if (item.langValue) {
       Cookies.set("language", item.langValue);
       i18n.changeLanguage(item.langValue);
-      setTimeout(() => {
-        handleHideSideBar();
-      }, 1000);
+      setRerenderComponent(true);
     } else {
       if (item.navigate == "/login") {
         Cookies.remove("token");
@@ -57,14 +59,38 @@ const Sidebar = ({ setShowSideBar, showSideBar }: any) => {
     }
   };
 
+  const handleSideBarAnimation = () => {
+    if (showSideBar) {
+      if (lang == "ar") {
+        return "show-side-bar-right";
+      } else {
+        return "show-side-bar";
+      }
+    } else {
+      if (isFirstHide) {
+        if (lang == "ar") {
+          return "hide-side-bar-right";
+        } else {
+          return "hide-side-bar";
+        }
+      }
+    }
+  };
+
+  const handleSideBarPosition = () => {
+    if (lang == "ar") {
+      return "position-right";
+    } else {
+      return "position-left";
+    }
+  };
+
   return (
     <div
-      className={`sidebar ${showSideBar && "show-side-bar"}  ${
-        !showSideBar && isFirstHide && "hide-side-bar"
-      } `}
+      className={`sidebar ${handleSideBarAnimation()}  ${handleSideBarPosition()}`}
     >
       <div className="sidebar-header flexBetween">
-        <div className="flexCenter">
+        <div className="flexCenter" dir="ltr">
           <h1>{t("navbar.sidebar")}</h1>
           <h2>{t("navbar.list")}</h2>
         </div>

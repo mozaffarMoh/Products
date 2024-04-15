@@ -17,7 +17,7 @@ const AllProducts = () => {
   };
 
   return (
-    <div className="all-products flexCenterColumn">
+    <div className="all-products flexCenterColumn" dir="ltr">
       {loading && <Loading />}
       <div className="products-text">
         <h1>{t("products.chooseProduct")}</h1>

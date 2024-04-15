@@ -28,7 +28,11 @@ const Navbar = ({ setRerenderComponent }: any) => {
 
   return (
     <div className="navbar">
-      <Sidebar setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
+      <Sidebar
+        setShowSideBar={setShowSideBar}
+        showSideBar={showSideBar}
+        setRerenderComponent={setRerenderComponent}
+      />
       <div className="menu-logo flexEnd">
         <BiMenu onClick={() => setShowSideBar(true)} />
       </div>
@@ -39,7 +43,7 @@ const Navbar = ({ setRerenderComponent }: any) => {
             style={{ transform: isNight ? "rotate(-120deg)" : "rotate(0deg)" }}
             onClick={handleChangeDayStatus}
           />
-          <div className="position-relative">
+          <div className="position-relative mt-1">
             <img
               src={basketImg}
               className="basket-icon"

@@ -1,10 +1,9 @@
 .sidebar {
     width: 500px;
     height: 100vh;
-    background-color: rgb(235, 233, 229);
     position: fixed;
+    background-color: rgb(235, 233, 229);
     top: 0px;
-    left: -520px;
     z-index: 30;
     box-shadow: 10px -10px 20px rgb(189, 188, 188);
     padding: 30px 0px;
@@ -24,13 +23,15 @@
             }
         }
 
-        h2,h1 {
+        h2,
+        h1 {
             color: grey;
             margin-left: 15px;
             text-shadow: 5px 5px 7px rgb(132, 112, 151);
         }
-        h1{
-            color : rgb(71, 71, 71);
+
+        h1 {
+            color: rgb(71, 71, 71);
             margin-bottom: 15px;
         }
     }
@@ -53,12 +54,28 @@
     }
 }
 
+.position-left {
+    left: -520px;
+}
+
+.position-right {
+    right: -520px;
+}
+
 .show-side-bar {
     animation: showSideBar 1s forwards;
 }
 
+.show-side-bar-right {
+    animation: ShowSideBarRight 1s forwards;
+}
+
 .hide-side-bar {
     animation: hideSideBar 1s forwards;
+}
+
+.hide-side-bar-right {
+    animation: hideSideBarRight 1s forwards;
 }
 
 @keyframes showSideBar {
@@ -71,6 +88,16 @@
     }
 }
 
+@keyframes ShowSideBarRight {
+    0% {
+        right: -520px;
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
 @keyframes hideSideBar {
     0% {
         left: 0px;
@@ -78,6 +105,16 @@
 
     100% {
         left: -520px;
+    }
+}
+
+@keyframes hideSideBarRight {
+    0% {
+        right: 0px;
+    }
+
+    100% {
+        right: -520px;
     }
 }
 
